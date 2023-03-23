@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Looping over the FormData object</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<style>
+			body {
+				margin: 1em auto;
+				max-width: 40em;
+				width: 88%;
+			}
+
+			label,
+			input,
+			textarea {
+				display: block;
+				width: 100%;
+			}
+
+			label {
+				font-weight: bold;
+			}
+
+			input,
+			textarea {
+				margin-bottom: 1em;
+			}
+
+			textarea {
+				min-height: 8em;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<h1>The FormData API</h1>
+
+		<form>
+
+			<label for="title">Title</label>
+			<input type="text" name="title" id="title" value="Go to the beach">
+
+			<label for="body">Body</label>
+			<textarea id="body" name="body">Soak up the sun and swim in the ocean.</textarea>
+
+			<input type="hidden" name="userId" value="1">
+
+			<button>Submit</button>
+
+		</form>
+
+		<p><em>Look in the console to see the API in action.</em></p>
+
+
+		<script>
+			// Get the form
+			let form = document.querySelector('form');
+
+			// Get all field data from the form
+			// returns a FormData object
+			let data = new FormData(form);
+
+			// Loop over each entry
+			for (let entry of data) {
+				console.log(entry);
+			}
+
+			// Destructure each entry
+			for (let [key, value] of data) {
+				console.log(key);
+				console.log(value);
+			}
+		</script>
+	</body>
+</html>
